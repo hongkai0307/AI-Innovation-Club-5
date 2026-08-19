@@ -8077,3 +8077,56 @@ html {
     align-items: center;
     justify-content: center;
 }
+/* =================================================
+   FINAL FIX - HOME PAGE THEME BUTTON
+================================================= */
+
+body[data-page="home"] .nav-container {
+    position: relative !important;
+
+    width: 100% !important;
+    max-width: none !important;
+
+    padding-left: 28px !important;
+    padding-right: 100px !important;
+}
+
+
+/* Reduce only home navbar spacing */
+
+body[data-page="home"] .nav-links {
+    gap: 18px !important;
+}
+
+
+/* Make sure sun button can never disappear */
+
+body[data-page="home"] .theme-toggle {
+    display: flex !important;
+
+    position: absolute !important;
+
+    right: 24px !important;
+    top: 50% !important;
+
+    transform: translateY(-50%) !important;
+
+    width: 52px !important;
+    height: 52px !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    visibility: visible !important;
+    opacity: 1 !important;
+
+    z-index: 1000 !important;
+}
+
+
+/* Sun icon */
+
+body[data-page="home"] .theme-toggle i {
+    display: inline-block !important;
+    font-size: 22px !important;
+}
