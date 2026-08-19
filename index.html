@@ -1,0 +1,2938 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Artificial Intelligence Society</title>
+
+
+    <!-- =========================================
+         FAVICON
+    ========================================== -->
+
+    <link rel="icon"
+          href="image/AIS-logo.png">
+
+
+    <!-- =========================================
+         GOOGLE FONT
+    ========================================== -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+
+    <!-- =========================================
+         BOOTSTRAP ICONS
+    ========================================== -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+    <!-- =========================================
+         MAIN CSS
+    ========================================== -->
+
+    <link rel="stylesheet"
+          href="style.css">
+
+
+    <!-- =========================================
+         MASCOT CSS
+         Put here so you can copy only index.html
+    ========================================== -->
+
+    <style>
+
+        /* =========================================
+           HERO MASCOT CONTAINER
+        ========================================= */
+
+        .hero-mascot {
+
+            position: relative;
+
+            min-height: 610px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            z-index: 5;
+
+            isolation: isolate;
+
+        }
+
+
+        /* =========================================
+           MASCOT GLOW
+        ========================================= */
+
+        .mascot-glow {
+
+            position: absolute;
+
+            width: 520px;
+
+            height: 520px;
+
+            border-radius: 50%;
+
+            background:
+
+                radial-gradient(
+                    circle,
+                    rgba(34, 211, 238, 0.22) 0%,
+                    rgba(99, 102, 241, 0.14) 32%,
+                    rgba(139, 92, 246, 0.10) 48%,
+                    transparent 72%
+                );
+
+            filter: blur(30px);
+
+            z-index: 0;
+
+            animation:
+                mascotGlowPulse
+                4.5s
+                ease-in-out
+                infinite;
+
+        }
+
+
+        /* =========================================
+           TECHNOLOGY RINGS
+        ========================================= */
+
+        .mascot-tech-ring {
+
+            position: absolute;
+
+            border-radius: 50%;
+
+            pointer-events: none;
+
+            z-index: 1;
+
+        }
+
+
+        .mascot-ring-one {
+
+            width: 470px;
+
+            height: 470px;
+
+            border:
+                1px solid
+                rgba(56, 189, 248, 0.20);
+
+            box-shadow:
+
+                inset
+                0 0 28px
+                rgba(56, 189, 248, 0.04),
+
+                0 0 30px
+                rgba(56, 189, 248, 0.05);
+
+            animation:
+                mascotRingRotate
+                18s
+                linear
+                infinite;
+
+        }
+
+
+        .mascot-ring-one::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 9px;
+
+            height: 9px;
+
+            top: 16px;
+
+            left: 50%;
+
+            border-radius: 50%;
+
+            background: #67e8f9;
+
+            box-shadow:
+                0 0 15px #67e8f9;
+
+        }
+
+
+        .mascot-ring-one::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 7px;
+
+            height: 7px;
+
+            right: 20px;
+
+            bottom: 50px;
+
+            border-radius: 50%;
+
+            background: #a78bfa;
+
+            box-shadow:
+                0 0 15px #a78bfa;
+
+        }
+
+
+        .mascot-ring-two {
+
+            width: 370px;
+
+            height: 370px;
+
+            border:
+                1px dashed
+                rgba(167, 139, 250, 0.23);
+
+            animation:
+                mascotRingReverse
+                13s
+                linear
+                infinite;
+
+        }
+
+
+        /* =========================================
+           MASCOT IMAGE
+        ========================================= */
+
+        .hero-mascot-img {
+
+            position: relative;
+
+            z-index: 4;
+
+            width: min(100%, 525px);
+
+            max-height: 545px;
+
+            object-fit: contain;
+
+            filter:
+
+                drop-shadow(
+                    0 30px 40px
+                    rgba(0, 0, 0, 0.38)
+                )
+
+                drop-shadow(
+                    0 0 25px
+                    rgba(34, 211, 238, 0.18)
+                )
+
+                drop-shadow(
+                    0 0 45px
+                    rgba(139, 92, 246, 0.14)
+                );
+
+            animation:
+                mascotFloating
+                4s
+                ease-in-out
+                infinite;
+
+            transition:
+                filter 0.35s ease;
+
+        }
+
+
+        .hero-mascot:hover
+        .hero-mascot-img {
+
+            filter:
+
+                drop-shadow(
+                    0 35px 45px
+                    rgba(0, 0, 0, 0.42)
+                )
+
+                drop-shadow(
+                    0 0 35px
+                    rgba(34, 211, 238, 0.30)
+                )
+
+                drop-shadow(
+                    0 0 60px
+                    rgba(139, 92, 246, 0.20)
+                );
+
+        }
+
+
+        /* =========================================
+           AIS SYSTEM ONLINE LABEL
+        ========================================= */
+
+        .mascot-status {
+
+            position: absolute;
+
+            z-index: 8;
+
+            top: 67px;
+
+            left: 40px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            padding:
+                9px 13px;
+
+            border-radius: 999px;
+
+            background:
+                rgba(9, 12, 20, 0.76);
+
+            border:
+                1px solid
+                rgba(103, 232, 249, 0.15);
+
+            backdrop-filter:
+                blur(12px);
+
+            color:
+                #9ca3af;
+
+            font-size: 8px;
+
+            font-weight: 900;
+
+            letter-spacing: 1.6px;
+
+            box-shadow:
+                0 12px 28px
+                rgba(0, 0, 0, 0.20);
+
+        }
+
+
+        .status-dot {
+
+            width: 7px;
+
+            height: 7px;
+
+            border-radius: 50%;
+
+            background: #22d3ee;
+
+            box-shadow:
+                0 0 10px #22d3ee;
+
+            animation:
+                systemDot
+                1.8s
+                ease-in-out
+                infinite;
+
+        }
+
+
+        /* =========================================
+           TECHNOLOGY WELCOME BOX
+        ========================================= */
+
+        .mascot-welcome-box {
+
+            position: absolute;
+
+            z-index: 10;
+
+            right: -12px;
+
+            bottom: 58px;
+
+            width: 330px;
+
+            min-height: 94px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 16px;
+
+            padding:
+                17px 20px;
+
+            overflow: hidden;
+
+            border-radius: 17px;
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    rgba(11, 13, 23, 0.93),
+                    rgba(18, 20, 35, 0.86)
+                );
+
+            border:
+                1px solid
+                rgba(103, 232, 249, 0.17);
+
+            backdrop-filter:
+                blur(18px);
+
+            box-shadow:
+
+                0 22px 50px
+                rgba(0, 0, 0, 0.40),
+
+                0 0 32px
+                rgba(124, 58, 237, 0.12);
+
+            animation:
+                welcomeBoxFloat
+                4.8s
+                ease-in-out
+                infinite;
+
+        }
+
+
+        /* Scanning line */
+
+        .mascot-welcome-box::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+
+            left: -80%;
+
+            width: 65%;
+
+            height: 2px;
+
+            background:
+
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    #22d3ee,
+                    #8b5cf6,
+                    transparent
+                );
+
+            box-shadow:
+                0 0 10px
+                rgba(34, 211, 238, 0.70);
+
+            animation:
+                welcomeScanner
+                3.3s
+                linear
+                infinite;
+
+        }
+
+
+        /* Technology corner */
+
+        .mascot-welcome-box::after {
+
+            content: "";
+
+            position: absolute;
+
+            right: 9px;
+
+            top: 9px;
+
+            width: 20px;
+
+            height: 20px;
+
+            border-top:
+                1px solid
+                rgba(103, 232, 249, 0.40);
+
+            border-right:
+                1px solid
+                rgba(103, 232, 249, 0.40);
+
+        }
+
+
+        /* =========================================
+           WELCOME ICON
+        ========================================= */
+
+        .welcome-symbol {
+
+            width: 52px;
+
+            height: 52px;
+
+            flex-shrink: 0;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 14px;
+
+            background:
+
+                linear-gradient(
+                    145deg,
+                    rgba(34, 211, 238, 0.17),
+                    rgba(139, 92, 246, 0.22)
+                );
+
+            border:
+                1px solid
+                rgba(103, 232, 249, 0.12);
+
+            color: #67e8f9;
+
+            font-size: 22px;
+
+            box-shadow:
+
+                inset
+                0 0 15px
+                rgba(103, 232, 249, 0.05),
+
+                0 0 22px
+                rgba(124, 58, 237, 0.10);
+
+            animation:
+                welcomeIconPulse
+                3s
+                ease-in-out
+                infinite;
+
+        }
+
+
+        /* =========================================
+           WELCOME TEXT
+        ========================================= */
+
+        .welcome-text {
+
+            display: flex;
+
+            flex-direction: column;
+
+            min-width: 0;
+
+        }
+
+
+        .welcome-label {
+
+            margin-bottom: 5px;
+
+            color: #38bdf8;
+
+            font-size: 8px;
+
+            font-weight: 900;
+
+            letter-spacing: 2px;
+
+        }
+
+
+        .welcome-text strong {
+
+            color: #ffffff;
+
+            font-size: 15px;
+
+            font-weight: 900;
+
+            line-height: 1.2;
+
+            letter-spacing: -0.3px;
+
+        }
+
+
+        .welcome-text small {
+
+            margin-top: 7px;
+
+            color: #8b93a4;
+
+            font-size: 8px;
+
+            font-weight: 700;
+
+            letter-spacing: 0.5px;
+
+        }
+
+
+        /* =========================================
+           LIGHT MODE
+        ========================================= */
+
+        body.light-mode
+        .mascot-status {
+
+            background:
+                rgba(255, 255, 255, 0.82);
+
+            color: #5f6675;
+
+            border:
+                1px solid
+                rgba(8, 145, 178, 0.12);
+
+            box-shadow:
+                0 12px 25px
+                rgba(15, 23, 42, 0.09);
+
+        }
+
+
+        body.light-mode
+        .mascot-welcome-box {
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    rgba(255, 255, 255, 0.96),
+                    rgba(245, 247, 255, 0.92)
+                );
+
+            border:
+                1px solid
+                rgba(99, 102, 241, 0.15);
+
+            box-shadow:
+
+                0 22px 48px
+                rgba(15, 23, 42, 0.12),
+
+                0 0 30px
+                rgba(139, 92, 246, 0.08);
+
+        }
+
+
+        body.light-mode
+        .welcome-text strong {
+
+            color: #111827;
+
+        }
+
+
+        body.light-mode
+        .welcome-label {
+
+            color: #0891b2;
+
+        }
+
+
+        body.light-mode
+        .welcome-text small {
+
+            color: #64748b;
+
+        }
+
+
+        body.light-mode
+        .welcome-symbol {
+
+            color: #0891b2;
+
+            background:
+
+                linear-gradient(
+                    145deg,
+                    rgba(6, 182, 212, 0.09),
+                    rgba(124, 58, 237, 0.10)
+                );
+
+        }
+
+
+        /* =========================================
+           MASCOT ANIMATIONS
+        ========================================= */
+
+        @keyframes mascotFloating {
+
+            0%,
+            100% {
+
+                transform:
+                    translateY(0);
+
+            }
+
+            50% {
+
+                transform:
+                    translateY(-18px);
+
+            }
+
+        }
+
+
+        @keyframes mascotGlowPulse {
+
+            0%,
+            100% {
+
+                opacity: 0.70;
+
+                transform:
+                    scale(0.95);
+
+            }
+
+            50% {
+
+                opacity: 1;
+
+                transform:
+                    scale(1.08);
+
+            }
+
+        }
+
+
+        @keyframes mascotRingRotate {
+
+            from {
+
+                transform:
+                    rotate(0deg);
+
+            }
+
+            to {
+
+                transform:
+                    rotate(360deg);
+
+            }
+
+        }
+
+
+        @keyframes mascotRingReverse {
+
+            from {
+
+                transform:
+                    rotate(360deg);
+
+            }
+
+            to {
+
+                transform:
+                    rotate(0deg);
+
+            }
+
+        }
+
+
+        @keyframes welcomeBoxFloat {
+
+            0%,
+            100% {
+
+                transform:
+                    translateY(0);
+
+            }
+
+            50% {
+
+                transform:
+                    translateY(-10px);
+
+            }
+
+        }
+
+
+        @keyframes welcomeScanner {
+
+            0% {
+
+                left: -80%;
+
+            }
+
+            100% {
+
+                left: 130%;
+
+            }
+
+        }
+
+
+        @keyframes welcomeIconPulse {
+
+            0%,
+            100% {
+
+                box-shadow:
+                    0 0 15px
+                    rgba(34, 211, 238, 0.08);
+
+            }
+
+            50% {
+
+                box-shadow:
+                    0 0 28px
+                    rgba(34, 211, 238, 0.25);
+
+            }
+
+        }
+
+
+        @keyframes systemDot {
+
+            0%,
+            100% {
+
+                opacity: 1;
+
+                transform:
+                    scale(1);
+
+            }
+
+            50% {
+
+                opacity: 0.35;
+
+                transform:
+                    scale(0.75);
+
+            }
+
+        }
+
+
+        /* =========================================
+           TABLET
+        ========================================= */
+
+        @media
+        (max-width: 1050px) {
+
+            .hero-mascot {
+
+                min-height: 520px;
+
+            }
+
+
+            .hero-mascot-img {
+
+                width:
+                    min(90%, 470px);
+
+            }
+
+
+            .mascot-ring-one {
+
+                width: 420px;
+
+                height: 420px;
+
+            }
+
+
+            .mascot-ring-two {
+
+                width: 330px;
+
+                height: 330px;
+
+            }
+
+
+            .mascot-welcome-box {
+
+                right: 10%;
+
+                bottom: 26px;
+
+            }
+
+
+            .mascot-status {
+
+                top: 35px;
+
+                left: 15%;
+
+            }
+
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media
+        (max-width: 650px) {
+
+            .hero-mascot {
+
+                min-height: 470px;
+
+                margin-top: 20px;
+
+            }
+
+
+            .hero-mascot-img {
+
+                width:
+                    min(95%, 350px);
+
+                max-height: 380px;
+
+            }
+
+
+            .mascot-glow {
+
+                width: 350px;
+
+                height: 350px;
+
+            }
+
+
+            .mascot-ring-one {
+
+                width: 330px;
+
+                height: 330px;
+
+            }
+
+
+            .mascot-ring-two {
+
+                width: 260px;
+
+                height: 260px;
+
+            }
+
+
+            .mascot-status {
+
+                top: 20px;
+
+                left: 50%;
+
+                transform:
+                    translateX(-50%);
+
+            }
+
+
+            .mascot-welcome-box {
+
+                width: 285px;
+
+                right: 50%;
+
+                bottom: 0;
+
+                transform:
+                    translateX(50%);
+
+            }
+
+
+            .welcome-text strong {
+
+                font-size: 13px;
+
+            }
+
+
+            @keyframes welcomeBoxFloat {
+
+                0%,
+                100% {
+
+                    transform:
+                        translateX(50%)
+                        translateY(0);
+
+                }
+
+                50% {
+
+                    transform:
+                        translateX(50%)
+                        translateY(-8px);
+
+                }
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+
+<body data-page="home">
+
+
+<!-- =========================================
+     NAVIGATION
+========================================= -->
+
+<nav class="navbar">
+
+    <div class="nav-container">
+
+        <a href="index.html"
+           class="logo-wrap">
+
+            <img
+                src="image/AIS-logo.png"
+                alt="AIS Logo"
+                class="logo-img">
+
+            <span class="logo-text">
+                 AIS <em>|</em> Artificial Intelligence Society
+            </span>
+
+        </a>
+
+
+        <button
+            class="mobile-menu"
+            id="mobileMenu">
+
+            <i class="bi bi-list"></i>
+
+        </button>
+
+
+        <ul
+            class="nav-links"
+            id="navLinks">
+
+            <li>
+
+                <a
+                    href="index.html"
+                    data-page="home">
+
+                    HOME
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a
+                    href="ai.html"
+                    data-page="ai">
+
+                    AI HUB
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="#projects">
+
+                    ML PROJECTS
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="#workshops">
+
+                    WORKSHOPS
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="#challenge">
+
+                    CHALLENGE
+
+                </a>
+
+            </li>
+            <li>
+    <a href="#about">
+        ABOUT
+    </a>
+</li>
+
+<li>
+    <a href="#events">
+        EVENTS
+    </a>
+</li>
+
+<li>
+    <a href="#resources">
+        RESOURCES
+    </a>
+</li>
+
+            <li>
+
+                <a
+                    href="contact.html"
+                    data-page="join">
+
+                    JOIN
+
+                </a>
+
+            </li>
+<li>
+    <a href="profile.html">
+        PROFILE
+    </a>
+</li>
+        </ul>
+
+<a href="login.html" class="nav-login">
+    LOGIN
+</a>
+
+        <button
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="Toggle theme">
+
+            <i class="bi bi-sun-fill"></i>
+
+        </button>
+
+    </div>
+
+</nav>
+
+
+
+<main class="page">
+
+
+
+<!-- =========================================
+     AI TECHNOLOGY EFFECT
+========================================= -->
+
+<section class="system-showcase">
+    <video class="system-bg-video" autoplay muted loop playsinline>
+    <source src="ai-ambient.mp4" type="video/mp4">
+</video>
+
+<div class="system-video-overlay"></div>
+    <!-- OUTER TECHNOLOGY BACKGROUND -->
+    <div class="outer-tech-bg">
+
+        <div class="outer-blur blur-purple"></div>
+        <div class="outer-blur blur-cyan"></div>
+
+        <div class="outer-grid"></div>
+
+        <span class="outer-line ol1"></span>
+        <span class="outer-line ol2"></span>
+        <span class="outer-line ol3"></span>
+        <span class="outer-line ol4"></span>
+
+        <span class="outer-particle op1"></span>
+        <span class="outer-particle op2"></span>
+        <span class="outer-particle op3"></span>
+        <span class="outer-particle op4"></span>
+        <span class="outer-particle op5"></span>
+        <span class="outer-particle op6"></span>
+        <span class="outer-particle op7"></span>
+        <span class="outer-particle op8"></span>
+
+    </div>
+    <div class="system-showcase-container">
+
+        <div class="system-card">
+
+            <!-- animated grid -->
+            <div class="system-grid"></div>
+
+            <!-- ambient background circles -->
+            <div class="system-orb orb-one"></div>
+            <div class="system-orb orb-two"></div>
+
+            <!-- scanning line -->
+            <div class="system-scan-line"></div>
+
+            <!-- centre AI core -->
+            <div class="system-ai-core">
+
+                <div class="core-ring ring-one"></div>
+                <div class="core-ring ring-two"></div>
+                <div class="core-ring ring-three"></div>
+
+                <div class="core-chip">
+                    <i class="bi bi-cpu-fill"></i>
+                </div>
+
+            </div>
+
+            <!-- network nodes -->
+
+            <div class="system-node node-a">
+                <i class="bi bi-database-fill"></i>
+                <span>DATA</span>
+            </div>
+
+            <div class="system-node node-b">
+                <i class="bi bi-diagram-3-fill"></i>
+                <span>LEARN</span>
+            </div>
+
+            <div class="system-node node-c">
+                <i class="bi bi-lightbulb-fill"></i>
+                <span>DECIDE</span>
+            </div>
+
+            <div class="system-node node-d">
+                <i class="bi bi-stars"></i>
+                <span>CREATE</span>
+            </div>
+
+            <!-- connection lines -->
+
+            <span class="system-link link-a"></span>
+            <span class="system-link link-b"></span>
+            <span class="system-link link-c"></span>
+            <span class="system-link link-d"></span>
+
+            <!-- particles -->
+
+            <span class="system-dot dot1"></span>
+            <span class="system-dot dot2"></span>
+            <span class="system-dot dot3"></span>
+            <span class="system-dot dot4"></span>
+            <span class="system-dot dot5"></span>
+
+            <!-- text -->
+
+            <div class="system-content">
+
+                <span class="system-label">
+                    ● AI SYSTEM ONLINE
+                </span>
+
+                <h2>
+                    THINK.
+                    <span>LEARN.</span>
+                    CREATE.
+                </h2>
+
+                <p>
+                    Artificial Intelligence transforms data
+                    into patterns, predictions and smarter decisions.
+                </p>
+
+            </div>
+
+            <div class="system-corner top-left"></div>
+            <div class="system-corner bottom-right"></div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+<!-- =========================================
+     HERO
+========================================= -->
+
+<section class="home-hero">
+
+
+
+    <div class="hero-grid"></div>
+
+
+    <div class="hero-inner">
+
+
+        <!-- =================================
+             LEFT SIDE
+        ================================== -->
+
+        <div class="hero-glass glass">
+
+
+            <div class="eyebrow">
+
+                Artificial Intelligence Society
+
+            </div>
+
+
+            <h1
+                class="hero-title
+                       gradient-text">
+
+                EXPLORE.
+
+                <br>
+
+                LEARN. CREATE.
+
+                <br>
+
+                INNOVATE.
+
+            </h1>
+
+
+            <p class="hero-description">
+
+                A student-driven space to discover
+                Artificial Intelligence, build Machine
+                Learning projects, practise Prompt
+                Engineering and turn ideas into meaningful
+                technology.
+
+            </p>
+
+
+            <div class="hero-actions">
+
+
+                <a
+                    href="ai.html"
+                    class="btn-primary">
+
+                    EXPLORE AI
+
+                    <i class="bi bi-arrow-right"></i>
+
+                </a>
+
+
+                <a
+                    href="contact.html"
+                    class="btn-secondary">
+
+                    JOIN THE CLUB
+
+                </a>
+
+            </div>
+
+
+            <div class="hero-stats">
+
+
+                <div class="hero-stat">
+
+                    <strong>
+                        10+
+                    </strong>
+
+                    <span>
+                        Projects
+                    </span>
+
+                </div>
+
+
+                <div class="hero-stat">
+
+                    <strong>
+                        8+
+                    </strong>
+
+                    <span>
+                        Workshops
+                    </span>
+
+                </div>
+
+
+                <div class="hero-stat">
+
+                    <strong>
+                        100+
+                    </strong>
+
+                    <span>
+                        Members
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =================================
+             RIGHT SIDE - AIS MASCOT
+        ================================== -->
+
+        <div class="hero-mascot">
+
+
+            <!-- Glow -->
+
+            <div class="mascot-glow"></div>
+
+
+            <!-- Technology rings -->
+
+            <div
+                class="mascot-tech-ring
+                       mascot-ring-one">
+            </div>
+
+
+            <div
+                class="mascot-tech-ring
+                       mascot-ring-two">
+            </div>
+
+
+            <!-- System online -->
+
+            <div class="mascot-status">
+
+                <span class="status-dot"></span>
+
+                AIS SYSTEM ONLINE
+
+            </div>
+
+
+            <!-- Mascot -->
+
+            <img
+                src="image/ai-mascot.png"
+                alt="Artificial Intelligence Society Mascot"
+                class="hero-mascot-img">
+
+
+            <!-- Welcome box -->
+
+            <div class="mascot-welcome-box">
+
+
+                <div class="welcome-symbol">
+
+                    <i class="bi bi-stars"></i>
+
+                </div>
+
+
+                <div class="welcome-text">
+
+
+                    <span class="welcome-label">
+
+                        WELCOME TO
+
+                    </span>
+
+
+                    <strong>
+
+                        Artificial Intelligence Society!
+
+                    </strong>
+
+
+                    <small>
+
+                        Explore · Learn · Create · Innovate
+
+                    </small>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     WHAT WE BUILD
+========================================= -->
+
+<section class="section">
+
+    <div class="container">
+
+
+        <div class="section-head reveal">
+
+
+            <div class="eyebrow">
+
+                DISCOVER THE COMMUNITY
+
+            </div>
+
+
+            <h2 class="section-title">
+
+                WHAT WE
+
+                <span class="gradient-text">
+
+                    BUILD TOGETHER
+
+                </span>
+
+            </h2>
+
+
+            <p class="section-copy">
+
+                AIS connects learning with practice.
+                Members explore core AI topics,
+                collaborate on projects and join activities
+                designed to strengthen technical and
+                creative skills.
+
+            </p>
+
+
+        </div>
+
+
+
+        <div class="card-grid">
+
+
+            <!-- =================================
+                 ARTIFICIAL INTELLIGENCE
+            ================================== -->
+
+            <article
+                class="feature-card reveal">
+
+
+                <div class="feature-icon">
+
+                    <i class="bi bi-robot"></i>
+
+                </div>
+
+
+                <div
+                    class="feature-visual
+                           ai-network">
+
+
+                    <span
+                        class="network-line
+                               line-a">
+                    </span>
+
+                    <span
+                        class="network-line
+                               line-b">
+                    </span>
+
+                    <span
+                        class="network-line
+                               line-c">
+                    </span>
+
+                    <span
+                        class="network-line
+                               line-d">
+                    </span>
+
+
+                    <span
+                        class="network-node
+                               node-one">
+                    </span>
+
+                    <span
+                        class="network-node
+                               node-two">
+                    </span>
+
+                    <span
+                        class="network-node
+                               node-three">
+                    </span>
+
+                    <span
+                        class="network-node
+                               node-four">
+                    </span>
+
+                    <span
+                        class="network-node
+                               node-five">
+                    </span>
+
+
+                    <div class="visual-caption">
+
+                        <i class="bi bi-cpu"></i>
+
+                        <span>
+
+                            Neural Intelligence
+
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+                <span class="tag">
+
+                    01 / LEARN
+
+                </span>
+
+
+                <h3>
+
+                    Artificial Intelligence
+
+                </h3>
+
+
+                <p>
+
+                    Understand AI concepts, capabilities,
+                    real-world applications and responsible
+                    use through interactive content.
+
+                </p>
+
+
+                <a
+                    href="ai.html"
+                    class="link">
+
+                    OPEN AI HUB
+
+                    <i class="bi bi-arrow-right"></i>
+
+                </a>
+
+
+            </article>
+
+
+
+            <!-- =================================
+                 MACHINE LEARNING
+            ================================== -->
+
+            <article
+                class="feature-card reveal">
+
+
+                <div class="feature-icon">
+
+                    <i class="bi bi-diagram-3-fill"></i>
+
+                </div>
+
+
+                <div
+                    class="feature-visual
+                           ml-visual">
+
+
+                    <div class="ml-grid-lines"></div>
+
+
+                    <div class="ml-bars">
+
+
+                        <span style="--h:34%"></span>
+
+                        <span style="--h:52%"></span>
+
+                        <span style="--h:44%"></span>
+
+                        <span style="--h:72%"></span>
+
+                        <span style="--h:88%"></span>
+
+
+                    </div>
+
+
+                    <svg
+                        class="ml-curve"
+                        viewBox="0 0 260 100"
+                        preserveAspectRatio="none">
+
+
+                        <path
+                            d="M5,84 C45,70 62,78 92,57 C125,34 147,48 174,28 C199,10 224,18 255,8"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="3"
+                            stroke-linecap="round">
+                        </path>
+
+
+                    </svg>
+
+
+                    <div class="visual-caption">
+
+
+                        <i class="bi bi-graph-up-arrow"></i>
+
+
+                        <span>
+
+                            Learn From Data
+
+                        </span>
+
+
+                    </div>
+
+
+                </div>
+
+
+                <span class="tag">
+
+                    02 / BUILD
+
+                </span>
+
+
+                <h3>
+
+                    Machine Learning
+
+                </h3>
+
+
+                <p>
+
+                    Explore student projects in prediction,
+                    classification, computer vision and
+                    intelligent recommendations.
+
+                </p>
+
+
+                <a
+                    href="#projects"
+                    class="link">
+
+                    VIEW PROJECTS
+
+                    <i class="bi bi-arrow-right"></i>
+
+                </a>
+
+
+            </article>
+
+
+
+            <!-- =================================
+                 PROMPT ENGINEERING
+            ================================== -->
+
+            <article
+                class="feature-card reveal">
+
+
+                <div class="feature-icon">
+
+                    <i class="bi bi-chat-left-text-fill"></i>
+
+                </div>
+
+
+                <div
+                    class="feature-visual
+                           prompt-visual">
+
+
+                    <div class="prompt-window">
+
+
+                        <div class="prompt-window-top">
+
+                            <span></span>
+
+                            <span></span>
+
+                            <span></span>
+
+                        </div>
+
+
+                        <div
+                            class="prompt-line
+                                   prompt-one">
+
+
+                            <i class="bi bi-stars"></i>
+
+
+                            <span>
+
+                                Generate a creative idea
+
+                            </span>
+
+
+                        </div>
+
+
+                        <div
+                            class="prompt-line
+                                   prompt-two">
+
+
+                            <i class="bi bi-arrow-return-right"></i>
+
+
+                            <span class="typing-text">
+
+                                Refining prompt...
+
+                            </span>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="visual-caption">
+
+
+                        <i class="bi bi-chat-square-dots"></i>
+
+
+                        <span>
+
+                            Prompt → Create
+
+                        </span>
+
+
+                    </div>
+
+
+                </div>
+
+
+                <span class="tag">
+
+                    03 / CREATE
+
+                </span>
+
+
+                <h3>
+
+                    Prompt Engineering
+
+                </h3>
+
+
+                <p>
+
+                    Learn how structured prompts can improve
+                    the quality, accuracy and creativity of
+                    generative AI outputs.
+
+                </p>
+
+
+                <a
+                    href="#workshops"
+                    class="link">
+
+                    EXPLORE WORKSHOPS
+
+                    <i class="bi bi-arrow-right"></i>
+
+                </a>
+
+
+            </article>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =========================================
+     PROJECT SHOWCASE
+========================================= -->
+
+<section
+    class="spotlight"
+    id="projects">
+
+
+    <div class="container">
+
+
+        <div class="section-head reveal">
+
+
+            <div class="eyebrow">
+
+                PROJECT SHOWCASE
+
+            </div>
+
+
+            <h2 class="section-title">
+
+                FROM IDEA TO
+
+                <span class="gradient-text">
+
+                    PROTOTYPE
+
+                </span>
+
+            </h2>
+
+
+            <p class="section-copy">
+
+                A selection of practical project
+                directions that members can explore
+                individually or in teams.
+
+            </p>
+
+
+        </div>
+
+
+
+        <div class="card-grid">
+
+
+            <!-- =================================
+                 AI CHATBOT
+            ================================== -->
+
+            <article
+                class="image-card reveal">
+
+
+                <div class="media-bg">
+
+
+                    <div
+                        class="project-visual
+                               chatbot-visual">
+
+
+                        <div
+                            class="chat-bubble
+                                   bot">
+
+
+                            <i class="bi bi-robot"></i>
+
+
+                            <span>
+
+                                How can I help?
+
+                            </span>
+
+
+                        </div>
+
+
+                        <div
+                            class="chat-bubble
+                                   user">
+
+
+                            <span>
+
+                                Explain AI simply
+
+                            </span>
+
+
+                        </div>
+
+
+                        <div class="typing-dots">
+
+                            <i></i>
+
+                            <i></i>
+
+                            <i></i>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="content">
+
+
+                    <span class="tag">
+
+                        NLP
+
+                    </span>
+
+
+                    <h3>
+
+                        AI Chatbot
+
+                    </h3>
+
+
+                    <p>
+
+                        Create a conversational assistant
+                        that understands common questions
+                        and returns useful responses.
+
+                    </p>
+
+
+                </div>
+
+
+            </article>
+
+
+
+            <!-- =================================
+                 IMAGE RECOGNITION
+            ================================== -->
+
+            <article
+                class="image-card reveal">
+
+
+                <div class="media-bg">
+
+
+                    <div
+                        class="project-visual
+                               vision-visual">
+
+
+                        <div class="scan-frame">
+
+
+                            <span class="scan-line"></span>
+
+
+                            <i class="bi bi-eye-fill"></i>
+
+
+                            <b>
+
+                                OBJECT DETECTED
+
+                            </b>
+
+
+                        </div>
+
+
+                        <span class="corner c1"></span>
+
+                        <span class="corner c2"></span>
+
+                        <span class="corner c3"></span>
+
+                        <span class="corner c4"></span>
+
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="content">
+
+
+                    <span class="tag">
+
+                        COMPUTER VISION
+
+                    </span>
+
+
+                    <h3>
+
+                        Image Recognition
+
+                    </h3>
+
+
+                    <p>
+
+                        Train a model to identify visual
+                        patterns and classify images into
+                        meaningful categories.
+
+                    </p>
+
+
+                </div>
+
+
+            </article>
+
+
+
+            <!-- =================================
+                 STUDENT PERFORMANCE
+            ================================== -->
+
+            <article
+                class="image-card reveal">
+
+
+                <div class="media-bg">
+
+
+                    <div
+                        class="project-visual
+                               data-visual">
+
+
+                        <div class="score-ring">
+
+
+                            <strong>
+
+                                87%
+
+                            </strong>
+
+
+                            <span>
+
+                                Prediction
+
+                            </span>
+
+
+                        </div>
+
+
+                        <div class="data-spark">
+
+
+                            <i style="--x:12%; --y:70%"></i>
+
+                            <i style="--x:28%; --y:54%"></i>
+
+                            <i style="--x:44%; --y:62%"></i>
+
+                            <i style="--x:60%; --y:34%"></i>
+
+                            <i style="--x:77%; --y:44%"></i>
+
+                            <i style="--x:90%; --y:18%"></i>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="content">
+
+
+                    <span class="tag">
+
+                        DATA SCIENCE
+
+                    </span>
+
+
+                    <h3>
+
+                        Student Performance
+
+                    </h3>
+
+
+                    <p>
+
+                        Use data and machine learning
+                        to discover patterns and estimate
+                        academic outcomes.
+
+                    </p>
+
+
+                </div>
+
+
+            </article>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =========================================
+     WORKSHOPS
+========================================= -->
+
+<section
+    class="section"
+    id="workshops">
+
+
+    <div class="container">
+
+
+        <div class="section-head reveal">
+
+
+            <div class="eyebrow">
+
+                LEARN BY DOING
+
+            </div>
+
+
+            <h2 class="section-title">
+
+                WORKSHOPS &
+
+                <span class="gradient-text">
+
+                    EVENTS
+
+                </span>
+
+            </h2>
+
+
+            <p class="section-copy">
+
+                Hands-on sessions help members move from
+                theory to practice while meeting students
+                who share the same interests.
+
+            </p>
+
+
+        </div>
+
+
+
+        <div class="card-grid">
+
+
+            <!-- =================================
+                 ML WORKSHOP
+            ================================== -->
+
+            <article
+                class="feature-card
+                       reveal
+                       workshop-card">
+
+
+                <div class="feature-icon">
+
+                    <i class="bi bi-terminal-fill"></i>
+
+                </div>
+
+
+                <div
+                    class="event-visual
+                           model-lab">
+
+
+                    <div class="lab-code">
+
+
+                        <span>
+
+                            dataset.csv
+
+                        </span>
+
+
+                        <span>
+
+                            model.fit(X, y)
+
+                        </span>
+
+
+                        <span>
+
+                            accuracy: 0.92
+
+                        </span>
+
+
+                    </div>
+
+
+                    <div class="model-pulse"></div>
+
+
+                </div>
+
+
+                <span class="tag">
+
+                    WORKSHOP
+
+                </span>
+
+
+                <h3>
+
+                    Build Your First ML Model
+
+                </h3>
+
+
+                <p>
+
+                    Learn the workflow from data
+                    preparation to training and
+                    simple model evaluation.
+
+                </p>
+
+
+            </article>
+
+
+
+            <!-- =================================
+                 PROMPT LAB
+            ================================== -->
+
+            <article
+                class="feature-card
+                       reveal
+                       workshop-card">
+
+
+                <div class="feature-icon">
+
+                    <i class="bi bi-stars"></i>
+
+                </div>
+
+
+                <div
+                    class="event-visual
+                           prompt-lab">
+
+
+                    <div class="prompt-demo">
+
+
+                        <span class="prompt-chip">
+
+                            ROLE
+
+                        </span>
+
+
+                        <span class="prompt-chip">
+
+                            CONTEXT
+
+                        </span>
+
+
+                        <span class="prompt-chip">
+
+                            TASK
+
+                        </span>
+
+
+                        <div class="prompt-result">
+
+                            <i class="bi bi-stars"></i>
+
+                            Better response generated
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+                <span class="tag">
+
+                    WORKSHOP
+
+                </span>
+
+
+                <h3>
+
+                    Prompt Engineering Lab
+
+                </h3>
+
+
+                <p>
+
+                    Compare prompt structures and
+                    learn how small changes can
+                    improve AI-generated results.
+
+                </p>
+
+
+            </article>
+
+
+
+            <!-- =================================
+                 AI SHARING
+            ================================== -->
+
+            <article
+                class="feature-card
+                       reveal
+                       workshop-card">
+
+
+                <div class="feature-icon">
+
+                    <i class="bi bi-people-fill"></i>
+
+                </div>
+
+
+                <div
+                    class="event-visual
+                           sharing-visual">
+
+
+                    <div class="avatar a1">
+
+                        <i class="bi bi-person-fill"></i>
+
+                    </div>
+
+
+                    <div class="avatar a2">
+
+                        <i class="bi bi-person-fill"></i>
+
+                    </div>
+
+
+                    <div class="avatar a3">
+
+                        <i class="bi bi-person-fill"></i>
+
+                    </div>
+
+
+                    <span class="share-line l1"></span>
+
+                    <span class="share-line l2"></span>
+
+                    <span class="share-line l3"></span>
+
+
+                    <div class="idea-core">
+
+                        <i class="bi bi-lightbulb-fill"></i>
+
+                    </div>
+
+
+                </div>
+
+
+                <span class="tag">
+
+                    COMMUNITY
+
+                </span>
+
+
+                <h3>
+
+                    AI Sharing Session
+
+                </h3>
+
+
+                <p>
+
+                    Discuss emerging AI ideas,
+                    student projects and current
+                    technology trends with the
+                    community.
+
+                </p>
+
+
+            </article>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =========================================
+     CHALLENGE
+========================================= -->
+
+<section
+    class="challenge"
+    id="challenge">
+
+
+    <div class="container">
+
+
+        <div
+            class="challenge-box
+                   glass
+                   reveal">
+
+
+            <div>
+
+
+                <div class="eyebrow">
+
+                    INNOVATION CHALLENGE
+
+                </div>
+
+
+                <h2>
+
+                    TURN IDEAS INTO
+
+                    <span class="gradient-text">
+
+                        INTELLIGENT SOLUTIONS
+
+                    </span>
+
+                </h2>
+
+
+                <p>
+
+                    Form a team, identify a real
+                    problem and design a practical
+                    solution using AI, Machine
+                    Learning or automation.
+
+                </p>
+
+
+                <div class="hero-actions">
+
+
+                    <a
+                        href="contact.html"
+                        class="btn-primary">
+
+                        JOIN AIS
+
+                        <i class="bi bi-arrow-right"></i>
+
+                    </a>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="challenge-side">
+
+
+                <div class="mini">
+
+
+                    <i class="bi bi-lightbulb-fill"></i>
+
+
+                    <strong>
+
+                        Create
+
+                    </strong>
+
+
+                    <span>
+
+                        Develop original ideas
+
+                    </span>
+
+
+                </div>
+
+
+                <div class="mini">
+
+
+                    <i class="bi bi-people-fill"></i>
+
+
+                    <strong>
+
+                        Collaborate
+
+                    </strong>
+
+
+                    <span>
+
+                        Work as a team
+
+                    </span>
+
+
+                </div>
+
+
+                <div class="mini">
+
+
+                    <i class="bi bi-code-slash"></i>
+
+
+                    <strong>
+
+                        Build
+
+                    </strong>
+
+
+                    <span>
+
+                        Prototype solutions
+
+                    </span>
+
+
+                </div>
+
+
+                <div class="mini">
+
+
+                    <i class="bi bi-trophy-fill"></i>
+
+
+                    <strong>
+
+                        Achieve
+
+                    </strong>
+
+
+                    <span>
+
+                        Showcase outcomes
+
+                    </span>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+
+
+
+</main>
+
+
+
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer class="site-footer">
+
+
+    <div class="footer-inner">
+
+
+        <div>
+
+
+            <strong>
+
+                Artificial Intelligence Society
+
+            </strong>
+
+
+            <p>
+
+                Explore. Learn. Create. Innovate.
+
+            </p>
+
+
+        </div>
+
+
+        <p>
+
+            © 2026 Artificial Intelligence Society.
+            All Rights Reserved.
+
+        </p>
+
+
+    </div>
+
+
+</footer>
+
+<!-- =========================================
+     COOKIE CONSENT
+========================================= -->
+
+<div class="cookie-banner" id="cookieBanner">
+
+    <div class="cookie-icon">
+        <i class="bi bi-shield-lock-fill"></i>
+    </div>
+
+    <div class="cookie-content">
+
+        <span class="cookie-label">
+            PRIVACY SYSTEM
+        </span>
+
+        <h3>
+            We Value Your Privacy
+        </h3>
+
+        <p>
+            We use cookies to improve your browsing experience,
+            remember your preferences and help us understand
+            how visitors interact with the Artificial Intelligence Society website.
+        </p>
+
+    </div>
+
+    <div class="cookie-actions">
+
+        <button
+            class="cookie-btn cookie-reject"
+            id="rejectCookies">
+
+            REJECT
+
+        </button>
+
+        <button
+            class="cookie-btn cookie-accept"
+            id="acceptCookies">
+
+            ACCEPT ALL
+
+            <i class="bi bi-check-lg"></i>
+
+        </button>
+
+    </div>
+
+    <div class="cookie-scan"></div>
+
+</div>
+
+
+
+<!-- =========================================
+     JAVASCRIPT
+========================================= -->
+
+<script src="main.js"></script>
+
+
+</body>
+
+</html>
