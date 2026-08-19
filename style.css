@@ -8018,3 +8018,62 @@ html {
 
     z-index: 5;
 }
+/* =========================================
+   FIX HOME NAVBAR WIDTH
+========================================= */
+
+.nav-container {
+    width: 100%;
+    max-width: 1800px;
+    margin: 0 auto;
+
+    padding: 0 28px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 20px;
+}
+
+
+/* Navigation links */
+
+.nav-links {
+    display: flex;
+    align-items: center;
+
+    gap: 28px;
+
+    margin-left: auto;
+
+    white-space: nowrap;
+}
+
+
+/* Make links slightly tighter */
+
+.nav-links a {
+    font-size: 16px;
+    white-space: nowrap;
+}
+
+
+/* Login must not grow */
+
+.nav-login {
+    flex-shrink: 0;
+}
+
+
+/* Sun button must always stay visible */
+
+.theme-toggle {
+    flex-shrink: 0;
+
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
